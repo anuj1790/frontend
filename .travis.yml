@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+    
+before_install:
+    - docker build -t anujaga/Docker-NodeApp -f Dockerfile.dev .
+    
+script:
+    - docker run anujaga/Docker-NodeApp npm run test -- --coverage
